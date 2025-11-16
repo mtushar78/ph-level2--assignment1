@@ -14,7 +14,7 @@ const formatValue = (input: formatValueType): formatValueType => {
 
 const getLength = <T>(value: string | Array<T>) => {
 
-    if(Array.isArray(value))
+    if (Array.isArray(value))
         return value.length
 
     return value.length
@@ -120,4 +120,5 @@ const calculateTotalPrice = (products: ProductType[]): number => {
         return total + (subtotal - discountAmount);
     }, 0);
 }
+
 
