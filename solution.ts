@@ -12,7 +12,7 @@ const formatValue = (input: formatValueType): formatValueType => {
 }
 
 
-const getLength = <T>(value: string | Array<T>) => {
+const getLength = <T>(value: string | Array<T>): number => {
 
     if (Array.isArray(value))
         return value.length
@@ -30,8 +30,8 @@ class Person {
         this.age = age;
     }
 
-    getDetails() {
-        return `Name: ${this.name}, Age: ${this.age}`
+    getDetails(): string {
+        return `'Name: ${this.name}, Age: ${this.age}'`
     }
 }
 
@@ -40,11 +40,11 @@ type bookType = {
     title: string,
     rating: number
 }
-const filterByRating = (items: Array<bookType>) => {
+const filterByRating = (items: Array<bookType>): Array<bookType> => {
     items.forEach(item => {
         if (item.rating < 0 || item.rating > 5) {
             throw new Error(
-                `Invalid input ${JSON.stringify(item)}. Rating range should be between 0 and 5.`
+                `Invalid input ${JSON.stringify(item)}. Rating should be between 0 and 5.`
             );
         }
     });
@@ -53,13 +53,14 @@ const filterByRating = (items: Array<bookType>) => {
 }
 
 
+
 type userType = {
     id: number,
     name: string,
     email: string,
     isActive: boolean
 }
-const filterActiveUsers = (items: Array<userType>) => {
+const filterActiveUsers = (items: Array<userType>): Array<userType> => {
     return items.filter(item => item.isActive)
 }
 
